@@ -23,6 +23,7 @@ public class AsciiArt
 		System.out.println("         =====  /  \\ =======           " );
 		System.out.println("         ====  /    \\ ======          " );
 		System.out.println("         ===  [------] ======         " );
+		System.out.println("         ======\'\'\'\'\'\'=====");
 		System.out.println("         ===================");
 		System.out.println("             /      \\" );
 		System.out.println("            /        \\" );
