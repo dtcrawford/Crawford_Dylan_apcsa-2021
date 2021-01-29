@@ -34,7 +34,7 @@ public class StarsAndStripes
    public void printASmallBox()
    {	
 	   System.out.println("-----");
-	   for (int i = 0; i<5 ; i++ )
+	   for (int i = 0; i<3 ; i++ )
 		   System.out.println("-   -");
 	   System.out.println("-----");
    }
@@ -42,7 +42,7 @@ public class StarsAndStripes
    public void printABigBox()
    { 
 	   System.out.println("----------------------");;
-	   for (int i = 0; i<20 ; i++ )
+	   for (int i = 0; i<18 ; i++ )
 		   System.out.println("-                    -");
 	   System.out.println("----------------------");
    }   
