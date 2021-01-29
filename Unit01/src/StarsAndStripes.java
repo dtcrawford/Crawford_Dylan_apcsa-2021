@@ -41,7 +41,7 @@ public class StarsAndStripes
  
    public void printABigBox()
    { 
-	   System.out.println("----------------------");;
+	   System.out.println("----------------------");
 	   for (int i = 0; i<18 ; i++ )
 		   System.out.println("-                    -");
 	   System.out.println("----------------------");
