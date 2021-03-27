@@ -1,3 +1,5 @@
+import activity9.Card;
+
 /**
  * This is a class that tests the Card class.
  */

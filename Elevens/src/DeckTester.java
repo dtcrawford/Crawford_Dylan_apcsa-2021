@@ -1,3 +1,5 @@
+import activity9.Deck;
+
 /**
  * This is a class that tests the Deck class.
  */
