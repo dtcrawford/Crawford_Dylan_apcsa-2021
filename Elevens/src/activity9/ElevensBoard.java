@@ -42,6 +42,7 @@ public class ElevensBoard extends Board {
 	 */
 	 public ElevensBoard() {
 	 	super(BOARD_SIZE, RANKS, SUITS, POINT_VALUES);
+	 	System.out.print("Dylan Crawford Period 3 April 13 2021");
 	 }
 
 	/**
@@ -57,10 +58,10 @@ public class ElevensBoard extends Board {
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		if(selectedCards.size()== 2) {
-			return containsPairSum11(selectedCards);
+			return containsJQK(selectedCards);
 		}
 		else if (selectedCards.size() == 3) {
-				return containsJQK(selectedCards);
+				return containsPairSum11(selectedCards);
 				
 		}
 		else {
@@ -97,9 +98,15 @@ public class ElevensBoard extends Board {
 			int y1 = selectedCards.get(x1).intValue();
 			for (int x2 = x1 + 1; x2< selectedCards.size(); x2++) {
 				int y2 = selectedCards.get(x2).intValue();
-				if (cardAt(y1).getPointValue() + cardAt(y2).getPointValue() == 11) {
+				for (int x3 = x2 + 1; x3< selectedCards.size(); x3++) {
+					int y3 = selectedCards.get(x3).intValue();
+				if (cardAt(y1).getPointValue() == 0 || cardAt(y2).getPointValue() == 0  || cardAt(y3).getPointValue() == 0) {
+					return false;
+				}
+				else if (cardAt(y1).getPointValue() + cardAt(y2).getPointValue() + cardAt(y3).getPointValue()  == 11) {
 					return true;
 				}
+			}
 			}
 		}
 		return false;
@@ -115,22 +122,23 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		boolean foundJack = false;
-		boolean foundQueen = false;
-		boolean foundKing = false;
-		for ( Integer Obj : selectedCards) {
-			int x = Obj.intValue();
-			if (cardAt(x).getRank().equals("jack")) {
-				foundJack = true;
+		for (int x1 = 0; x1 < selectedCards.size(); x1++) {
+			int y1 = selectedCards.get(x1).intValue();
+			for (int x2 = x1 + 1; x2< selectedCards.size(); x2++) {
+				int y2 = selectedCards.get(x2).intValue(); 
+			
+			if (cardAt(y1).getRank().equals("queen") && cardAt(y2).getRank().equals("queen")){
+				return true;
 			}
-			else if (cardAt(x).getRank().equals("queen")) {
-				foundQueen = true;
+			else if (cardAt(y1).getRank().equals("king") && cardAt(y2).getRank().equals("king")){
+					return true;
 			}
-			else if (cardAt(x).getRank().equals("king")) {
-				foundKing = true;
+			else if (cardAt(y1).getRank().equals("jack") && cardAt(y2).getRank().equals("jack")){
+					return true;
 			}
-		}
-			return foundJack && foundQueen && foundKing;
+			}
+			}
+		return false;
 	}
-}
-
+	}
+	
